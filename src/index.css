@@ -1,0 +1,341 @@
+@import url("https://fonts.googleapis.com/css2?family=roobert");
+@import url("https://fonts.googleapis.com/css2?family=Inter&display=swap");
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@font-face {
+  font-family: "roobert";
+  src: url("/roobert-font/Anurati-Regular.otf") format("opentype");
+}
+
+@font-face {
+  font-family: "Roobert Regular";
+  src: url("/Roobert-Regular/Roobert-Regular.ttf") format("truetype");
+}
+
+@font-face {
+  font-family: "Iskry";
+  src: url("/Iskry-Regular/Iskry-Regular.ttf") format("truetype");
+}
+
+@font-face {
+  font-family: "Cameo";
+  src: url("/Cameo-Sans-Font/CameoSansDEMO.ttf") format("truetype");
+}
+
+@font-face {
+  font-family: "Cobaissi";
+  src: url("/fonts/Cobaissi-Font/COBAISSI.ttf") format("truetype");
+}
+
+@font-face {
+  font-family: "Aquatico";
+  src: url("/fonts/Aquatico-Font/Aquatico-Regular.otf") format("opentype");
+}
+
+@font-face {
+  font-family: "Roslindale";
+  src: url("/fonts/Roslindale-TextBold-Testing.otf") format("opentype");
+}
+
+.aye {
+  font-family: "Aquatico", "Cobaissi", "roobert", inter;
+}
+
+.Roslindale {
+  font-family: "Roslindale", "Aquatico", "Cobaissi", "roobert", inter;
+}
+
+.Aquatico {
+  font-family: "Aquatico", "Cobaissi", "roobert", inter;
+}
+
+.Cobaissi {
+  font-family: "Cobaissi", "Inter", sans-serif;
+}
+
+.roobert {
+  font-family: "roobert", "Inter", sans-serif;
+}
+
+.cartoon-blocks {
+  font-family: "cartoon-blocks", "Inter", sans-serif;
+}
+
+.Cameo {
+  font-family: "Cameo", "Iskry", "Franklin Gothic Medium", "Arial Narrow", Arial,
+    sans-serif;
+}
+
+.Iskry {
+  font-family: "Iskry", "Inter", sans-serif;
+}
+
+*,
+*:before,
+*:after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  scroll-behavior: smooth;
+  list-style: none;
+}
+
+body {
+  font-family: "roobert", "Inter", sans-serif;
+  overflow-x: hidden;
+}
+
+@layer utilities {
+  .max-container {
+    @apply mx-auto max-w-[1400px] sm:p-5 p-3;
+  }
+
+  .max-w {
+    @apply mx-auto max-w-[1400px];
+  }
+}
+
+/* moving text  */
+#rssBlock {
+  left: 0px;
+  height: 80px;
+  position: absolute;
+  width: 100%;
+  overflow: hidden;
+}
+
+/*remove p*/
+.cnnContents {
+  width: 100%;
+  padding-top: 20px;
+  margin: 0 auto;
+  font-size: 30px;
+  white-space: nowrap;
+  text-transform: uppercase;
+  font-family: "Museo";
+  font-weight: 300;
+}
+
+.marqueeStyle {
+  display: inline-block;
+  /* Apply animation to this element */
+  -webkit-animation: scrolling-left1 20s linear infinite;
+  animation: scrolling-left1 20s linear infinite;
+}
+
+.marqueeStyle2 {
+  display: inline-block;
+  /* Apply animation to this element */
+  -webkit-animation: scrolling-left2 20s linear infinite;
+  animation: scrolling-left2 20s linear infinite;
+  animation-delay: 10s;
+}
+/* scrolling-left is continuous/repeatly text */
+@keyframes scrolling-left1 {
+  0% {
+    transform: translateX(100%);
+    -webkit-transform: translateX(100%);
+  }
+  100% {
+    transform: translateX(-100%);
+    -webkit-transform: translateX(-100%);
+  }
+}
+@keyframes scrolling-left2 {
+  0% {
+    transform: translateX(0%);
+    -webkit-transform: translateX(0%);
+  }
+  100% {
+    transform: translateX(-200%);
+    -webkit-transform: translateX(-200%);
+  }
+}
+
+@-webkit-keyframes scrolling-left1 {
+  0% {
+    -webkit-transform: translateX(100%);
+  }
+  100% {
+    -webkit-transform: translateX(-100%);
+  }
+}
+@-webkit-keyframes scrolling-left2 {
+  0% {
+    -webkit-transform: translateX(0%);
+  }
+  100% {
+    -webkit-transform: translateX(-200%);
+  }
+}
+
+.transform-origin-top {
+  transform-origin: top;
+}
+
+/* .movingText {
+  transform: translateX(53%);
+} */
+
+.hero-img {
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+}
+
+/* team border  */
+.team-border {
+  margin: 1em 0 0.5em 0em;
+  width: 100%;
+  height: 1px;
+  border-bottom: 1px solid white;
+  transform-origin: left;
+}
+
+/* cursor  */
+.cursor {
+  position: fixed;
+  width: 10px;
+  height: 10px;
+  background-color: rgba(0, 0, 0, 0.5);
+  border-radius: 50%;
+  pointer-events: none;
+  z-index: 9999;
+}
+
+.slider {
+  width: 2179px;
+  margin: auto;
+  overflow: visible;
+}
+
+.slider ul {
+  display: flex;
+  padding: 0;
+  animation: cambio 40s infinite linear;
+}
+
+.slider li {
+  padding: 0 10px;
+  list-style: none;
+}
+
+.slider img {
+  max-width: fit-content !important;
+  height: auto !important;
+}
+
+@keyframes cambio {
+  from {
+    margin-left: 0%;
+  }
+  to {
+    margin-left: -100%;
+  }
+}
+
+.two-text-bg {
+  margin: 0;
+  background: #fff url("/bg.svg");
+}
+
+@keyframes infiniteScroll {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(-50%);
+  }
+}
+.text-container {
+  width: 100%;
+  overflow-x: hidden;
+}
+.horizontal-scrolling-items {
+  display: flex;
+  width: 2600px;
+  animation-name: infiniteScroll;
+  animation-duration: 20s;
+  animation-iteration-count: infinite;
+  animation-timing-function: linear;
+}
+.horizontal-scrolling-items__item {
+  white-space: nowrap;
+}
+
+/* cursor  */
+
+.cursor {
+  position: absolute;
+  background-color: #000000;
+  width: 8px;
+  height: 8px;
+  border-radius: 100%;
+  z-index: 9999;
+  transition: 0.5s cubic-bezier(0.75, -1.27, 0.3, 2.33) transform,
+    0.2s cubic-bezier(0.75, -1.27, 0.3, 2.33) opacity;
+  user-select: none;
+  pointer-events: none;
+  transform: scale(0.8);
+}
+
+.cursor::before {
+  content: "";
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  display: block;
+  border-radius: 100%;
+  opacity: 0;
+}
+
+.cursor.active {
+  opacity: 1;
+  transform: scale(12);
+}
+
+.cursor.active {
+  background-color: #0000001e;
+  /* border: 0.1px solid #f0f0f0bc; */
+}
+
+.cursor.active::before {
+  opacity: 1;
+}
+
+.cursor-follower {
+  position: absolute;
+  background: rgba(41, 40, 40, 0.1);
+  width: 40px;
+  height: 40px;
+  border-radius: 100%;
+  z-index: 1;
+  transition: 0.6s cubic-bezier(0.75, -1.27, 0.3, 2.33) transform,
+    0.4s cubic-bezier(0.75, -1.27, 0.3, 2.33) opacity;
+  user-select: none;
+  pointer-events: none;
+  transform: translate(4px, 4px);
+}
+
+.cursor-follower.active {
+  opacity: 0.3;
+  transform: scale(0);
+}
+
+.cursor-text {
+  font-size: 11px !important;
+  pointer-events: none;
+  transform: scale(0.3) !important;
+  color: black1;
+  position: fixed;
+  top: -50%;
+  left: -50%;
+  transform: translateX(-50%, -50%);
+  margin-left: 2.5px;
+  margin-top: 2.5px;
+}
