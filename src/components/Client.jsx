@@ -15,7 +15,7 @@ const Client = () => {
               <li key={index}>
                 <img
                   className="h-[100px] w-[100px] tablet:h-[200px] tablet:w-[200px]"
-                  src={`/public/img/l${(index % 6) + 1}.png`}
+                  src={`/img/l${(index % 6) + 1}.png`}
                   alt={`Logo ${index + 1}`}
                 />
               </li>

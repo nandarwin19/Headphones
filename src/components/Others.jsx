@@ -155,7 +155,7 @@ const Others = () => {
       <div className="h-screen w-full">
         <video
           className="w-full h-full object-cover"
-          src="/public/other.mp4"
+          src="/other.mp4"
           autoPlay
           loop
           muted

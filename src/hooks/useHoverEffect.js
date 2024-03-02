@@ -1,7 +1,7 @@
 import hoverEffect from "hover-effect";
 import { useEffect } from "react";
 // import cloud from "./public//cloud.png";
-import cloud from "/public/img/cloud.png";
+import cloud from "/img/cloud.png";
 
 export const useHoverEffect = (el, img1, img2) => {
   useEffect(() => {

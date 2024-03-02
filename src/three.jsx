@@ -29,7 +29,7 @@
 
 //     // Objects
 //     // const geometry = new THREE.TorusGeometry(0.7, 0.2, 16, 100);
-//     loader.load("/public/headphones.glb", function (glb) {
+//     loader.load("/headphones.glb", function (glb) {
 //       jewel = glb.scene;
 
 //       scene.add(glb.scene);
