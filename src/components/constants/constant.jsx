@@ -161,3 +161,13 @@ export const socialLinks = [
   },
   { href: "mailto:nwin21210@gmail.com", text: "email", icon: <MdEmail /> },
 ];
+
+export const features = [
+  "Advanced noise cancellation technology",
+  "Wireless Bluetooth connectivity",
+  "Rich, immersive sound quality",
+  "Comfortable, ergonomic design",
+  "Driver: 50mm neodymium",
+  "Frequency response: 20Hz - 20kHz",
+  "Battery life: Up to 30 hours",
+];

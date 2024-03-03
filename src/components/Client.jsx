@@ -1,5 +1,3 @@
-import React from "react";
-
 const Client = () => {
   return (
     <div className="py-6 laptop:py-20 rounded-tl-[1.5rem] rounded-tr-[1.5rem] tablet:rounded-tl-[3rem] tablet:rounded-tr-[3rem] bg-white1 -mt-12">

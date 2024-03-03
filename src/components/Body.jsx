@@ -15,6 +15,11 @@ import { GoArrowDownRight } from "react-icons/go";
 gsap.registerPlugin(ScrollTrigger);
 
 const App = () => {
+  const cursorRef = useRef(null);
+  const followerRef = useRef(null);
+  const imageTextRef = useRef(null);
+
+  // background color and color change when it comes to team component with GSAP
   useEffect(() => {
     gsap.registerPlugin(ScrollTrigger);
 
@@ -33,6 +38,20 @@ const App = () => {
           end: "bottom center",
           duration: 2,
           toggleActions: "play none none reverse",
+
+          // cursor colors changed when it comes to team component
+          onEnter: () => {
+            cursorRef.current.style.backgroundColor = "#ebebeb";
+            followerRef.current.style.backgroundColor = "#dcdcdc62";
+          },
+          onLeaveBack: () => {
+            cursorRef.current.style.backgroundColor = "#000000";
+            followerRef.current.style.backgroundColor = "#2928281a";
+          },
+          onLeave: () => {
+            cursorRef.current.style.backgroundColor = "#000000";
+            followerRef.current.style.backgroundColor = "#2928281a";
+          },
         },
       }
     );
@@ -41,10 +60,6 @@ const App = () => {
       teamAnimation.kill();
     };
   }, []);
-
-  const cursorRef = useRef(null);
-  const followerRef = useRef(null);
-  const imageTextRef = useRef(null);
 
   useEffect(() => {
     const cursor = cursorRef.current;
@@ -81,7 +96,7 @@ const App = () => {
     animationLoop();
 
     return () => {
-      document.removeEventListener("mousemove", handleMouseMove); 
+      document.removeEventListener("mousemove", handleMouseMove);
     };
   }, []);
 

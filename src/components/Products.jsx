@@ -39,6 +39,7 @@ const Products = ({ mouseLeave, mouseEnter }) => {
                   src={product.img}
                   alt="headphone"
                   className="w-full hover:scale-105 duration-100 ease-in h-full object-cover hover:skew-20"
+                  loading="lazy"
                 />
               </div>
             </Link>

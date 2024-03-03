@@ -4,7 +4,7 @@ const Hero = () => {
       <div className="grid laptop:grid-cols-12 w-full">
         <div className="col-span-9 h-full flex w-full bg-black">
           <div className="laptop:w-[55px] bg-white1 h-[90vh] flex z-10 border-1 border-r-black"></div>
-          <div className=" h-[90vh] w-full border border-black">
+          <div className="h-[90vh] w-full border border-black">
             <video
               className="w-full h-full object-cover"
               src="/video/headphone.mp4"
@@ -37,9 +37,9 @@ const Hero = () => {
         </div>
       </div>
 
-      <div className="moving-text-container bg-white1  border-2 border-black absolute bottom-5 flex items-center w-full h-12 tablet:h-20">
-        <div className="text-container">
-          <div className="horizontal-scrolling-items text-2xl tablet:text-[3rem">
+      <div className="moving-text-container bg-white1  border-2 border-black absolute bottom-5 flex items-center w-full h-16 tablet:h-24">
+        <div className="">
+          <div className="horizontal-scrolling-items text-3xl tablet:text-[4rem]">
             <div className="horizontal-scrolling-items__item uppercase">
               Experience Beyond Sound:{" "}
               <span className="italic">In the Realm of Headphones</span>, I Am a

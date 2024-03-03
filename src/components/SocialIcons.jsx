@@ -5,7 +5,7 @@ const SocialLinks = () => {
     <div className="flex flex-col items-start justify-start gap-2">
       {socialLinks.map((link, index) => (
         <div className="flex gap-1 items-center" key={index}>
-          {/* <CircleAnimation> */}
+        
           <a
             href={link.href}
             target="_blank"

@@ -1,8 +1,6 @@
-import React, { useEffect } from "react";
-import { products } from "./constants/constant";
+import { useEffect } from "react";
+import { features, products } from "./constants/constant";
 import { useNavigate, useParams } from "react-router-dom";
-import Contact from "./Contact";
-import Navbar from "./navbar";
 
 const CurrentPage = () => {
   const { id } = useParams();
@@ -51,21 +49,15 @@ const CurrentPage = () => {
             </div>
 
             <ul className="mt-10">
-              <li>Advanced noise cancellation technology</li>
-              <li className="w-full h-[0.7px] bg-black/60 my-1"></li>
-              <li>Wireless Bluetooth connectivity</li>
-              <li className="w-full h-[0.7px] bg-black/60 my-1"></li>
-
-              <li>Rich, immersive sound quality</li>
-              <li className="w-full h-[0.7px] bg-black/60 my-1"></li>
-              <li>Comfortable, ergonomic design</li>
-              <li className="w-full h-[0.7px] bg-black/60 my-1"></li>
-              <li>Driver: 50mm neodymium</li>
-              <li className="w-full h-[0.7px] bg-black/60 my-1"></li>
-              <li>Frequency response: 20Hz - 20kHz</li>
-              <li className="w-full h-[0.7px] bg-black/60 my-1"></li>
-              <li>Battery life: Up to 30 hours</li>
-              <li className="w-full h-[0.7px] bg-black/60 my-1"></li>
+              {features.flatMap((feature, index) => [
+                <li key={index}>{feature}</li>,
+                index !== features.length - 1 && (
+                  <li
+                    key={`separator-${index}`}
+                    className="w-full h-[0.7px] bg-black/60 my-1"
+                  ></li>
+                ),
+              ])}
             </ul>
             <button className="w-full h-10 mt-20 bg-black1 text-white">
               BUY NOW
