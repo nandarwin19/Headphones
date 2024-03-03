@@ -1,19 +1,19 @@
-import h1 from "./../../../public/img/h1.jpg";
-import h2 from "./../../../public/img/h2.jpg";
-import h3 from "./../../../public/img/h3.jpg";
-import h4 from "./../../../public/img/h4.jpg";
-import h5 from "./../../../public/img/h5.jpg";
-import h6 from "./../../../public/img/h6.jpg";
-import h8 from "./../../../public/img/h8.jpg";
-import h9 from "./../../../public/img/h9.jpg";
-import h10 from "./../../../public/img/h10.jpg";
-import common from "./../../../public/img/headphoneCurrent.jpg";
+import h1 from "/img/h1.jpg";
+import h2 from "/img/h2.jpg";
+import h3 from "/img/h3.jpg";
+import h4 from "/img/h4.jpg";
+import h5 from "/img/h5.jpg";
+import h6 from "/img/h6.jpg";
+import h8 from "/img/h8.jpg";
+import h9 from "/img/h9.jpg";
+import h10 from "/img/h10.jpg";
+import common from "/img/headphoneCurrent.jpg";
 
-import p1 from "./../../../public/img/p1.jpg";
-import p2 from "./../../../public/img/p2.jpg";
-import p3 from "./../../../public/img/p3.jpg";
-import p4 from "./../../../public/img/p4.jpg";
-import p5 from "./../../../public/img/p5.jpg";
+import p1 from "/img/p1.jpg";
+import p2 from "/img/p2.jpg";
+import p3 from "/img/p3.jpg";
+import p4 from "/img/p4.jpg";
+import p5 from "/img/p5.jpg";
 import { FaGithub, FaTelegramPlane } from "react-icons/fa";
 import { MdEmail } from "react-icons/md";
 
