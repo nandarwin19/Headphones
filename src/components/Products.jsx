@@ -2,7 +2,7 @@
 import { useRef } from "react";
 import { useHoverEffect } from "../hooks/useHoverEffect";
 import { useGsapHeroImgReveal } from "../hooks/gsap";
-import h7 from "./../../public/img/h7.jpg";
+import h7 from "/img/h7.jpg";
 import { products } from "./constants/constant";
 import { Link } from "react-router-dom";
 

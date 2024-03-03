@@ -7,7 +7,7 @@ const Hero = () => {
           <div className=" h-[90vh] w-full border border-black">
             <video
               className="w-full h-full object-cover"
-              src="/headphone.mp4"
+              src="/video/headphone.mp4"
               autoPlay
               loop
               muted
