@@ -13,9 +13,6 @@ const More = () => {
 
     if (!text) return;
 
-    // Check if the screen size is laptop
-    const isLaptopSize = window.innerWidth >= 1024;
-    // if (isLaptopSize) {
     const observer = new IntersectionObserver(
       (entries) => {
         entries.forEach((entry) => {

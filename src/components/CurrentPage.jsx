@@ -1,10 +1,9 @@
 import { useEffect } from "react";
 import { features, products } from "./constants/constant";
-import { useNavigate, useParams } from "react-router-dom";
+import { useParams } from "react-router-dom";
 
 const CurrentPage = () => {
   const { id } = useParams();
-  const navigate = useNavigate();
 
   const productItem = products.find((item) => item.id === parseInt(id));
 

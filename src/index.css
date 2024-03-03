@@ -5,26 +5,8 @@
 @tailwind utilities;
 
 @font-face {
-  font-family: "roobert";
-  src: url("/roobert-font/Anurati-Regular.otf") format("opentype"),
-    url("/roobert-font/RobertSans-Bold.ttf") format("truetype"),
-    url("/roobert-font/RobertSans-ExtraBold.ttf") format("truetype"),
-    url("/roobert-font/RobertSans-Black.ttf") format("truetype");
-}
-
-@font-face {
   font-family: "Roobert Regular";
   src: url("/Roobert-Regular/Roobert-Regular.ttf") format("truetype");
-}
-
-@font-face {
-  font-family: "Iskry";
-  src: url("/Iskry-Regular/Iskry-Regular.ttf") format("truetype");
-}
-
-@font-face {
-  font-family: "Cameo";
-  src: url("/Cameo-Sans-Font/CameoSansDEMO.ttf") format("truetype");
 }
 
 @font-face {
@@ -37,19 +19,6 @@
   src: url("/fonts/Aquatico-Font/Aquatico-Regular.otf") format("opentype");
 }
 
-@font-face {
-  font-family: "Roslindale";
-  src: url("/fonts/Roslindale-TextBold-Testing.otf") format("opentype");
-}
-
-.aye {
-  font-family: "Aquatico", "Cobaissi", "roobert", inter;
-}
-
-.Roslindale {
-  font-family: "Roslindale", "Aquatico", "Cobaissi", "roobert", inter;
-}
-
 .Aquatico {
   font-family: "Aquatico", "Cobaissi", "roobert", inter;
 }
@@ -59,20 +28,7 @@
 }
 
 .roobert {
-  font-family: "roobert";
-}
-
-.cartoon-blocks {
-  font-family: "cartoon-blocks";
-}
-
-.Cameo {
-  font-family: "Cameo", "Iskry", "Franklin Gothic Medium", "Arial Narrow", Arial,
-    sans-serif;
-}
-
-.Iskry {
-  font-family: "Iskry";
+  font-family: "roobert", inter;
 }
 
 *,
@@ -86,7 +42,7 @@
 }
 
 body {
-  font-family: "roobert";
+  /* font-family: "roobert"; */
   overflow-x: hidden;
 }
 

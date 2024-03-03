@@ -113,7 +113,7 @@ const App = () => {
   };
 
   return (
-    <div className="">
+    <div className="smooth-scroll">
       <div ref={cursorRef} className="relative cursor">
         <div ref={imageTextRef} className="cursor-text">
           <GoArrowDownRight />

@@ -1,4 +1,3 @@
-import React from "react";
 import { challenges } from "./constants/constant";
 import { FiArrowDownRight } from "react-icons/fi";
 
@@ -138,7 +137,7 @@ const Others = () => {
 
               <div className="tablet:w-[800px] w-full relative">
                 <p>
-                  <span className="text-2xl tablet:leading-10 tablet:text-[40px]">
+                  <span className="text-2xl laptop:leading-[3rem] laptop:text-[40px]">
                     &nbsp; &nbsp; {data.text}
                   </span>
                 </p>

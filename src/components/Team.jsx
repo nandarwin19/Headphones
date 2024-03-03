@@ -2,12 +2,10 @@ import { useEffect, useRef, useState } from "react";
 import gsap from "gsap";
 import ScrollTrigger from "gsap/ScrollTrigger";
 import { teams } from "./constants/constant";
-import { FaArrowRightLong } from "react-icons/fa6";
 import { LuMinus, LuPlus } from "react-icons/lu";
 import SplitType from "split-type";
 import { randomType } from "./randomNumber/Random";
 
-// Register the ScrollTrigger plugin
 gsap.registerPlugin(ScrollTrigger);
 
 const Team = () => {
@@ -154,7 +152,7 @@ const Team = () => {
           gsap.to(img, {
             clipPath: "polygon(0 9%, 100% 0, 100% 91%, 0% 100%)",
           });
-          randomType(p, "01", 650, true);
+          randomType(p, "01", 300, true);
         });
 
         img.addEventListener("mouseleave", () => {
