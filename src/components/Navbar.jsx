@@ -13,7 +13,7 @@ const Navbar = () => {
     <div>
       <ul className="h-12 px-14 font-bold flex text-black1 text-sm gap-12 border-2 border-black2 border-l-0 border-r-0 bg-white1 items-center justify-start">
         <li className="tracking-wider cursor-pointer">
-          <Link to={"/headphones"} className="tracking-wider cursor-pointer">
+          <Link to={"/"} className="tracking-wider cursor-pointer">
             HEADPHONES
           </Link>
         </li>

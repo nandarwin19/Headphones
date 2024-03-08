@@ -2,7 +2,8 @@ import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import Body from "./components/Body";
 import CurrentPage from "./components/CurrentPage";
 import Header from "./components/Header";
-import Headphones from "./components/headphones/Headphones";
+
+import Headphones from "./pages/Headphones";
 
 const App = () => {
   return (

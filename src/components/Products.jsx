@@ -1,11 +1,3 @@
-<<<<<<< HEAD
-=======
-// import { products } from "./constants/constant";
-import { useRef } from "react";
-import { useHoverEffect } from "../hooks/useHoverEffect";
-import { useGsapHeroImgReveal } from "../hooks/gsap";
-import h7 from "/img/h7.jpg";
-
 import { products } from "./constants/constant";
 import { Link } from "react-router-dom";
 import PropTypes from "prop-types";
@@ -47,7 +39,7 @@ const Products = ({ mouseLeave, mouseEnter }) => {
         {/* <div className="hero-img" ref={heroImgRef}></div> */}
 
         <img
-          src="/public/img/h7.jpg"
+          src="/img/h7.jpg"
           alt=""
           className="object-cover hidden laptop:flex w-full h-full"
         />
