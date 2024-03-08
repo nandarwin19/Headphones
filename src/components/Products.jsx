@@ -9,7 +9,7 @@ const Products = ({ mouseLeave, mouseEnter }) => {
         <div className="laptop:w-[55px] bg-white1 h-full border-1 border-r-black"></div>
         <div className="h-full grid laptop:grid-cols-2 tablet:grid-cols-2  w-full">
           {products.map((product, index) => (
-            <Link to={`/${product.id}`} key={product.id}>
+            <Link to={`/products/${product.id}`} key={product.id}>
               <div
                 key={index}
                 className={`laptop:w-49% ${
@@ -36,8 +36,6 @@ const Products = ({ mouseLeave, mouseEnter }) => {
         </div>
       </div>
       <div className="w-full col-span-3 laptop:h-full border-b-2 border-black">
-        {/* <div className="hero-img" ref={heroImgRef}></div> */}
-
         <img
           src="/img/h7.jpg"
           alt=""

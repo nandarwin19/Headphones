@@ -13,9 +13,14 @@ const Header = () => {
             N. HEADPHONES
           </p>
         </Link>
-        <p className="tablet:pr-12 pr-6 cursor-pointer col-span-3 flex w-full h-full justify-end items-center">
-          <RiHeadphoneFill className="text-2xl" />
-        </p>
+        <Link
+          to={`/cart`}
+          className="tablet:pr-12 pr-6 cursor-pointer col-span-3 flex w-full h-full justify-end items-center"
+        >
+          <p className="tablet:pr-12 pr-6 cursor-pointer col-span-3 flex w-full h-full justify-end items-center">
+            <RiHeadphoneFill className="text-2xl" />
+          </p>
+        </Link>
       </div>
     </div>
   );

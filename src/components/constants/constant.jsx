@@ -197,6 +197,23 @@ export const all_headphones = [
   },
 ];
 
+export const relatedData = [
+  {
+    id: 8,
+    name: "Foldable Bluetooth Headphones",
+    category: "electronics",
+    image: h8,
+    price: 49.99,
+  },
+  {
+    id: 9,
+    name: "On-Ear Wireless Headphones",
+    category: "electronics",
+    image: h9,
+    price: 79.99,
+  },
+];
+
 export const challenges = [
   {
     id: 1,
