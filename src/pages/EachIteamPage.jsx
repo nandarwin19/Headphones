@@ -16,19 +16,19 @@ const EachIteamPage = () => {
   return (
     <div className="min-h-screen laptop:grid grid-cols-12  relative  bg-white1  pt-[10vh] w-full">
       <div className="col-span-9 c relative h-full flex w-full bg-black">
-        <div className="laptop:w-[55px] fixed bg-white1 h-full border-1 border-r-black"></div>
-        <div className="pl-[55px] h-full w-full border border-black">
+        <div className="laptop:w-[55px] md:fixed hidden md:block bg-white1 h-full border-1 border-r-black"></div>
+        <div className="lg:pl-[55px] h-full w-full border border-black">
           <img
             src={product?.image}
             alt=""
-            className="w-full h-[90vh] object-center object-fill"
+            className="w-full h-[80vh] md:h-[90vh] object-center object-fill"
           />
-          <RelatedProducts />
+          {/* <RelatedProducts /> */}
         </div>
       </div>
       <div className="laptop:col-span-3 col-span-12 w-full bg-white1 sticky">
         <div className="laptop:fixed bg-white1 z-10 p-6 ">
-          <p className="text-lg tablet:text-xl italic">
+          <p className="text-lg  lg:hidden xl:block tablet:text-xl italic">
             Immerse yourself in a symphony of sound, where crisp notes of melody
             intertwine with deep bass tones.
           </p>

@@ -52,7 +52,7 @@ body {
   }
 
   .max-w {
-    @apply mx-auto max-w-[1400px];
+    @apply mx-auto w-[90%] lg:max-w-[1400px];
   }
 }
 

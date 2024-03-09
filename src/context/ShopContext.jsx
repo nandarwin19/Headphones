@@ -29,7 +29,7 @@ const ShopContextProvider = (props) => {
         let itemInfo = all_headphones.find(
           (product) => product.id === Number(item)
         );
-        totalAmount += itemInfo.new_price * cartItems[item];
+        totalAmount += itemInfo.price * cartItems[item];
       }
     }
     return totalAmount;

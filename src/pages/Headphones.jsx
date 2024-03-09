@@ -1,8 +1,9 @@
 import { useContext, useState } from "react";
 import { ShopContext } from "../context/ShopContext";
-import banner from "/img/banner.jpg";
+import banner from "/img/bannerp.jpg";
 import { CiShop } from "react-icons/ci";
 import Item from "../components/Item";
+import Contact from "../components/Contact";
 
 const Headphones = () => {
   const { all_headphones } = useContext(ShopContext);
@@ -24,7 +25,11 @@ const Headphones = () => {
 
   return (
     <div className="bg-[#f5f5f5]">
-      <img src={banner} alt="" className="h-[60vh] w-full object-cover" />
+      <img
+        src={banner}
+        alt=""
+        className="h-[35vh] md:h-[60vh] w-full object-cover"
+      />
       <div className=" max-w">
         <div className="flex items-center justify-between my-2">
           <p>
@@ -34,12 +39,12 @@ const Headphones = () => {
             </span>{" "}
             out of {all_headphones.length} products
           </p>
-          <div className="flex items-center gap-2 bg-black1 text-white1 mt-4 mb-12 p-2 px-3">
+          <div className="flex items-center gap-2 bg-black1 text-white1 mt-10 mb-12 p-2 px-3">
             <CiShop />
           </div>
         </div>
 
-        <div className="flex flex-wrap space-y-10  items-center justify-between ">
+        <div className="flex flex-wrap   items-center justify-center md:justify-between ">
           {currentProducts.map((item, idx) => {
             return (
               <Item
@@ -69,6 +74,7 @@ const Headphones = () => {
           ))}
         </div>
       </div>
+      <Contact />
     </div>
   );
 };

@@ -1,6 +1,6 @@
 const Client = () => {
   return (
-    <div className="py-6 laptop:py-20 rounded-tl-[1.5rem] rounded-tr-[1.5rem] tablet:rounded-tl-[3rem] tablet:rounded-tr-[3rem] bg-white1 -mt-12">
+    <div className="py-6 overflow-hidden laptop:py-20 rounded-tl-[1.5rem] rounded-tr-[1.5rem] tablet:rounded-tl-[3rem] tablet:rounded-tr-[3rem] bg-white1 -mt-12">
       <div className="max-container ">
         <h1 className="Aquatico tablet:text-sm text-[12px] my-4">/Clients</h1>
         <h1 className="tablet:text-[2rem] text-[1.4rem]">

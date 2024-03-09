@@ -1,7 +1,10 @@
+import { useContext } from "react";
 import { RiHeadphoneFill } from "react-icons/ri";
 import { Link } from "react-router-dom";
+import { ShopContext } from "../context/ShopContext";
 
 const Header = () => {
+  const { getTotalCartItems } = useContext(ShopContext);
   return (
     <div className="fixed top-0 z-50 bg-white1 w-full border border-[#000000] font-bold">
       <div className="grid  grid-cols-12 h-[10vh] w-full place-items-center">
@@ -17,8 +20,9 @@ const Header = () => {
           to={`/cart`}
           className="tablet:pr-12 pr-6 cursor-pointer col-span-3 flex w-full h-full justify-end items-center"
         >
-          <p className="tablet:pr-12 pr-6 cursor-pointer col-span-3 flex w-full h-full justify-end items-center">
+          <p className="tablet:pr-12 relative pr-6 cursor-pointer col-span-3 flex w-full h-full justify-end items-center">
             <RiHeadphoneFill className="text-2xl" />
+            <small className="absolute top-[12px]">{getTotalCartItems()}</small>
           </p>
         </Link>
       </div>

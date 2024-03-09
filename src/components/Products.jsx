@@ -37,7 +37,7 @@ const Products = ({ mouseLeave, mouseEnter }) => {
       </div>
       <div className="w-full col-span-3 laptop:h-full border-b-2 border-black">
         <img
-          src="/img/h7.jpg"
+          src="/img/common.jpg"
           alt=""
           className="object-cover hidden laptop:flex w-full h-full"
         />
