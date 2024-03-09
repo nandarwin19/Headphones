@@ -114,12 +114,12 @@ const App = () => {
 
   return (
     <div className="smooth-scroll">
-      <div ref={cursorRef} className="relative cursor">
-        <div ref={imageTextRef} className="cursor-text">
-          <GoArrowDownRight />
+      <div ref={cursorRef} className="relative cursor hidden md:block">
+        <div ref={imageTextRef} className="cursor-text hidden md:block">
+          <GoArrowDownRight className="text-gray-600" />
         </div>
       </div>
-      <div ref={followerRef} className="cursor-follower"></div>
+      <div ref={followerRef} className="cursor-follower hidden md:block"></div>
       <Header />
       <Hero />
       <Products

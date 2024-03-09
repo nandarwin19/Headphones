@@ -24,14 +24,14 @@ const Headphones = () => {
   };
 
   return (
-    <div className="bg-[#f5f5f5]">
-      <img
-        src={banner}
-        alt=""
-        className="h-[35vh] md:h-[60vh] w-full object-cover"
-      />
-      <div className=" max-w">
-        <div className="flex items-center justify-between my-2">
+    <div className="bg-[#f5f5f5] ">
+      <div className="max-w">
+        <img
+          src={banner}
+          alt=""
+          className="h-[40vh] md:h-[60vh] w-full object-cover"
+        />
+        <div className="flex items-center justify-between py-2">
           <p>
             <span className="font-semibold">
               Showing {indexOfFirstProduct + 1}-
