@@ -1,0 +1,19 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+body {
+  margin: 0;
+  font-family: "Poppins", sans-serif;
+  background-color: #f6f6f6;
+  height: 100vh;
+  color: #000;
+}
+
+.listproduct-main {
+  display: grid;
+  grid-template-columns: 2fr 2fr 2fr 2fr;
+  gap: 10px;
+  width: 100%;
+  padding: 20px 0px;
+}
