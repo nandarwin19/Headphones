@@ -2,9 +2,44 @@ import { useState } from "react";
 
 const LoginSignup = () => {
   const [toggleChange, setToggleChange] = useState(false);
+  const [formData, setFormData] = useState({
+    username: "",
+    password: "",
+    email: "",
+  });
 
   const toggleForm = () => {
     setToggleChange(!toggleChange);
+  };
+
+  const login = async () => {
+    console.log("Login function executed", formData);
+  };
+
+  const signup = async () => {
+    console.log("Signup is here", formData);
+    let responseData;
+    await fetch("http://localhost:4000/signup", {
+      method: "POST",
+      headers: {
+        Accept: "application/form-data",
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(formData),
+    })
+      .then((respnose) => respnose.json())
+      .then((data) => (responseData = data));
+
+    if (responseData.success) {
+      localStorage.setItem("auth-token", responseData.token);
+      window.location.replace("/");
+    } else {
+      alert(responseData.errors);
+    }
+  };
+
+  const changeHandler = (e) => {
+    setFormData({ ...formData, [e.target.name]: e.target.value });
   };
 
   return (
@@ -18,22 +53,34 @@ const LoginSignup = () => {
             {!toggleChange && (
               <input
                 type="text"
-                placeholder="Enter your name"
+                placeholder="Enter your username"
+                value={formData.username}
+                onChange={changeHandler}
                 className="input-field"
+                name="username"
               />
             )}
             <input
+              name="email"
+              value={formData.email}
+              onChange={changeHandler}
               type="email"
               placeholder="Enter your email"
               className="input-field"
             />
             <input
               type="password"
+              name="password"
+              value={formData.password}
+              onChange={changeHandler}
               placeholder="Enter your password"
               className="input-field"
             />
           </div>
-          <button className="w-full mt-5 py-2 text-white bg-black1 font-medium rounded-lg">
+          <button
+            onClick={() => (toggleChange ? login() : signup())}
+            className="w-full mt-5 py-2 text-white bg-black1 font-medium rounded-lg"
+          >
             Continue
           </button>
           <p className="text-gray-600 text-sm mt-5">

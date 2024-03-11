@@ -13,10 +13,10 @@ const Header = () => {
     setToggleMenu(!toggleMenu);
   };
 
-  const goToLogin = () => {
-    setToggleMenu(false);
-    window.location.href = "/loginSignup";
-  };
+  // const goToLogin = () => {
+  //   setToggleMenu(false);
+  //   window.location.href = "/loginSignup";
+  // };
 
   const closeMenu = () => {
     setToggleMenu(false);
@@ -33,15 +33,33 @@ const Header = () => {
             N. HEADPHONES
           </p>
         </Link>
-        <Link
-          to={`/cart`}
-          className="hidden tablet:pr-12 pr-6 cursor-pointer col-span-3 md:flex w-full h-full justify-end items-center"
-        >
-          <p className="tablet:pr-12 relative pr-6 cursor-pointer col-span-3 flex w-full h-full justify-end items-center">
-            <RiHeadphoneFill className="text-2xl" />
-            <small className="absolute top-[12px]">{getTotalCartItems()}</small>
-          </p>
-        </Link>
+        <div className="hidden cursor-pointer col-span-3 md:flex w-full h-full justify-end gap-8 items-center">
+          {localStorage.getItem("auth-token") ? (
+            <button
+              className="py-2 px-4 bg-black2 text-white1"
+              onClick={() => {
+                localStorage.removeItem("auth-token");
+                window.location.href = "/";
+              }}
+            >
+              Logout
+            </button>
+          ) : (
+            <Link to="/loginSignup">
+              <button className="py-2 px-4 bg-black2 text-white1 rounded-sm ">
+                Login
+              </button>
+            </Link>
+          )}
+          <Link to={`/cart`}>
+            <p className="tablet:pr-12 relative pr-6 cursor-pointer col-span-3 flex w-full h-full justify-end items-center">
+              <RiHeadphoneFill className="text-2xl" />
+              <small className="absolute top-[12px]">
+                {getTotalCartItems()}
+              </small>
+            </p>
+          </Link>
+        </div>
         <div
           onClick={toggleMenuBtn}
           className="flex cursor-pointer items-center justify-end text-3xl ml-24 md:hidden"
@@ -83,12 +101,24 @@ const Header = () => {
                   CART
                 </Link>
               </li>
-              <button
-                onClick={goToLogin}
-                className="py-2 px-4 bg-black2 text-white1 rounded-md"
-              >
-                Login
-              </button>
+
+              {localStorage.getItem("auth-token") ? (
+                <button
+                  className="py-2 px-4 bg-black2 text-white1"
+                  onClick={() => {
+                    localStorage.removeItem("auth-token");
+                    window.location.href = "/";
+                  }}
+                >
+                  Logout
+                </button>
+              ) : (
+                <Link to="/loginSignup">
+                  <button className="py-2 px-4 bg-black2 text-white1 rounded-sm ">
+                    Login
+                  </button>
+                </Link>
+              )}
             </ul>
           </div>
         )}

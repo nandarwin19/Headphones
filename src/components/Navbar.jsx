@@ -16,7 +16,7 @@ const Navbar = () => {
         // Scroll to the target element after scrolling to the top
         setTimeout(() => {
           targetElement.scrollIntoView({ behavior: "smooth" });
-        }, 500); // Adjust the delay as needed
+        }, 500);
       }
     }
   };

@@ -1,21 +1,41 @@
-import { createContext, useState } from "react";
-import { all_headphones } from "../components/constants/constant";
+import { createContext, useEffect, useState } from "react";
+
 export const ShopContext = createContext(null);
 
 const getDefaultCart = () => {
   let cart = {};
-  for (let index = 0; index < all_headphones.length; index++) {
+  for (let index = 0; index < 300 + 1; index++) {
     cart[index] = 0;
   }
   return cart;
 };
 
 const ShopContextProvider = (props) => {
+  const [all_headphones, setAll_Headphones] = useState([]);
   const [cartItems, setCartItems] = useState(getDefaultCart());
+
+  useEffect(() => {
+    fetch("http://localhost:4000/allproducts").then((response) =>
+      response.json().then((data) => setAll_Headphones(data))
+    );
+  }, []);
 
   const addToCart = (itemId) => {
     setCartItems((prev) => ({ ...prev, [itemId]: prev[itemId] + 1 }));
-    console.log(cartItems);
+    console.log("hi");
+    if (localStorage.getItem("auth-token")) {
+      fetch("http://localhost:4000/addtocart", {
+        method: "POST",
+        headers: {
+          Accept: "application/json",
+          "auth-token": `${localStorage.getItem("auth-token")}`,
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({ itemId: itemId }),
+      })
+        .then((response) => response.json())
+        .then((data) => console.log(data));
+    }
   };
 
   const removeFromCart = (itemId) => {
