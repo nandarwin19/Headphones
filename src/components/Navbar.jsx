@@ -40,8 +40,8 @@ const Navbar = () => {
           <a className="tracking-wider cursor-pointer">TEAM</a>
         </li> */}
         <li>
-          <Link to={"/reviews"} onClick={() => handleClick(event, null)}>
-            REVIEWS
+          <Link to={"/cart"} onClick={() => handleClick(event, null)}>
+            CART
           </Link>
         </li>
       </ul>
