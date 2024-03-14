@@ -1,6 +1,6 @@
 const Hero = () => {
   return (
-    <div id="main" className="h-screen pt-[10vh] bg-white1 flex  w-full">
+    <div id="main" className="h-screen pt-[10vh] bg-white1 flex w-full">
       <div className="grid laptop:grid-cols-12 w-full">
         <div className="col-span-9 h-full flex w-full bg-black">
           <div className="laptop:w-[55px] bg-white1 h-[90vh] flex z-10 border-1 border-r-black"></div>
@@ -15,7 +15,7 @@ const Hero = () => {
             ></video>
           </div>
         </div>
-        <div className="col-span-3   h-[80vh]">
+        <div className="col-span-3 h-[80vh]">
           <div className="w-full  transform-origin-top border two-text-bg border-b-black flex flex-col justify-between min-h-[280px]  p-4 py-6 h-[20vh]">
             <p className="text-sm">We</p>
             <div className="flex justify-between gap-2">

@@ -24,8 +24,8 @@ const Header = () => {
   };
 
   return (
-    <div className="fixed top-0 z-50 bg-white1 w-[100vw] border border-[#000000] font-bold">
-      <div className="grid  grid-cols-12 h-[10vh] w-full place-items-center">
+    <div className="fixed top-0 z-50 bg-white1 w-full border border-[#000000] font-bold">
+      <div className="grid grid-cols-12 h-[10vh] w-full place-items-center">
         <Link
           to={`/`}
           className=" w-full h-full col-span-9 flex items-center laptop:border border-l-[#0000] border-r-[#242424]"
