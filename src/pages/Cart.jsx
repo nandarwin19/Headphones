@@ -3,13 +3,8 @@ import { ShopContext } from "../context/ShopContext";
 import { IoMdRemove } from "react-icons/io";
 
 const Cart = () => {
-  const {
-    getTotalCartItems,
-    getTotalCartAmount,
-    all_headphones,
-    cartItems,
-    removeFromCart,
-  } = useContext(ShopContext);
+  const { getTotalCartAmount, all_headphones, cartItems, removeFromCart } =
+    useContext(ShopContext);
 
   return (
     <div className="w-full pt-[15vh] min-h-[100vh] bg-gray-100 font-poppins">
@@ -35,7 +30,7 @@ const Cart = () => {
                           <img
                             src={e.image}
                             alt=""
-                            className="h-16 w-16  md:h-20 md:w-20 -ml-5"
+                            className="h-12 w-16  md:h-20 md:w-20 -ml-5"
                           />
                           <p className="text-sm md:text-base -ml-5">{e.name}</p>
                           <p className="text-sm md:text-base">${e.price}</p>
@@ -92,5 +87,3 @@ const Cart = () => {
 };
 
 export default Cart;
-
-

@@ -151,7 +151,7 @@ const Others = () => {
           </div>
         ))}
         <div className="movingTextDiv overflow-x-hidden relative flex items-center justify-center min-h-[300px] tablet:min-h-[600px] tablet:h-[70vh]">
-          <p className="movingText text-[40px] tablet:text-[10rem] absolute whitespace-nowrap">
+          <p className="movingText text-[40px] tablet:text-[9rem] absolute whitespace-nowrap">
             Discover Headphones
           </p>
         </div>
