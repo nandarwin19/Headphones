@@ -222,7 +222,7 @@ const Team = () => {
                   </p>
                 </div>
               </div>
-              <div className="team-name text-[2rem] flex flex-col items-center justify-center absolute z-1 top-1/3 -right-12">
+              <div className="team-name text-[2rem] flex flex-col items-center justify-center absolute z-1 top-1/3 -right-6 md:-right-12">
                 <p className="Roslindale">{team.name}</p>
                 <div
                   onClick={() =>
