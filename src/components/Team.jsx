@@ -2,170 +2,186 @@ import { useEffect, useRef, useState } from "react";
 import gsap from "gsap";
 import ScrollTrigger from "gsap/ScrollTrigger";
 import { teams } from "./constants/constant";
-import { FaArrowRightLong } from "react-icons/fa6";
 import { LuMinus, LuPlus } from "react-icons/lu";
 import SplitType from "split-type";
 import { randomType } from "./randomNumber/Random";
 
-// Register the ScrollTrigger plugin
 gsap.registerPlugin(ScrollTrigger);
 
 const Team = () => {
   const textRef = useRef(null);
   const [aboutTexts, setAboutTexts] = useState(teams.map(() => false));
+  let animation = null; // Add a variable to store the animation
 
   useEffect(() => {
-    gsap.registerPlugin(ScrollTrigger);
+    if (window.innerWidth > 768) {
+      gsap.registerPlugin(ScrollTrigger);
 
-    const text = textRef.current;
+      const text = textRef.current;
 
-    if (!text) return;
+      if (!text) return;
 
-    const observer = new IntersectionObserver(
-      (entries) => {
-        entries.forEach((entry) => {
-          if (entry.isIntersecting) {
-            const mySplitText = new SplitType(text, {
-              type: "chars",
-            });
-            const chars = mySplitText.chars;
+      const observer = new IntersectionObserver(
+        (entries) => {
+          entries.forEach((entry) => {
+            if (entry.isIntersecting) {
+              const mySplitText = new SplitType(text, {
+                type: "chars",
+              });
+              const chars = mySplitText.chars;
 
-            gsap.fromTo(
-              chars,
-              { scaleY: 0, duration: 0.5, color: "gray", y: 30, skewX: 10 },
-              {
-                y: 0,
-                scaleY: 1,
-                skewX: 0,
-                color: "white",
-                duration: 0.2,
-                stagger: 0.02,
-                scrollTrigger: {
-                  trigger: text,
-                  start: "top 60%",
-                  end: "5% -40%",
-                  scrub: true,
-                  // markers: true,
-                  toggleActions: "play none none reverse",
-                },
-              }
-            );
+              animation = gsap.fromTo(
+                // Store the animation in the variable
+                chars,
+                { scaleY: 0, duration: 0.5, color: "gray", y: 30, skewX: 10 },
+                {
+                  y: 0,
+                  scaleY: 1,
+                  skewX: 0,
+                  color: "white",
+                  duration: 0.2,
+                  stagger: 0.02,
+                  scrollTrigger: {
+                    trigger: text,
+                    start: "top 60%",
+                    end: "5% -40%",
+                    scrub: true,
+                    // markers: true,
+                    toggleActions: "play none none reverse",
+                  },
+                }
+              );
 
-            observer.unobserve(entry.target);
-          }
-        });
-      },
-      { threshold: 0.5 }
-    );
+              observer.unobserve(entry.target);
+            }
+          });
+        },
+        { threshold: 0.5 }
+      );
 
-    observer.observe(text);
+      observer.observe(text);
+
+      return () => {
+        observer.disconnect();
+      };
+    }
+
+    const handleResize = () => {
+      if (window.innerWidth <= 768 && animation) {
+        // Check if the window is resized to 768 pixels or less and if the animation exists
+        animation.kill(); // Kill the animation
+      }
+    };
+
+    window.addEventListener("resize", handleResize); // Add a 'resize' event listener to the window object
 
     return () => {
-      observer.disconnect();
+      window.removeEventListener("resize", handleResize); // Clean up the event listener when the component unmounts
     };
   }, []);
 
   useEffect(() => {
-    gsap.registerPlugin(ScrollTrigger);
-    const galleryTeam = gsap.utils.toArray("div.team-cards .team-img");
+    if (window.innerWidth > 768) {
+      gsap.registerPlugin(ScrollTrigger);
+      const galleryTeam = gsap.utils.toArray("div.team-cards .team-img");
 
-    galleryTeam.forEach((data) => {
-      const img = data.closest(".team-card").querySelector(".team-img");
-      const number = data.closest(".team-card").querySelector(".team-number");
-      const role = data.closest(".team-card").querySelector(".team-role");
-      const name = data.closest(".team-card").querySelector(".team-name");
-      const border = data.closest(".team-card").querySelector(".team-border");
-      const about = data.closest(".team-card").querySelector(".team-about");
+      galleryTeam.forEach((data) => {
+        const img = data.closest(".team-card").querySelector(".team-img");
+        const number = data.closest(".team-card").querySelector(".team-number");
+        const role = data.closest(".team-card").querySelector(".team-role");
+        const name = data.closest(".team-card").querySelector(".team-name");
+        const border = data.closest(".team-card").querySelector(".team-border");
+        const about = data.closest(".team-card").querySelector(".team-about");
 
-      gsap.set(img, {
-        clipPath: "polygon(0% 100%, 100% 100%, 100% 100%, 0% 100%)",
-      });
-      gsap.set(border, {
-        scaleX: 0,
-      });
-      gsap.set([role, number, name, about], {
-        yPercent: 100,
-        opacity: 0,
-      });
-
-      const tl = gsap.timeline({
-        scrollTrigger: {
-          trigger: data,
-          start: "-70% top",
-          end: "bottom top",
-          // markers: true,
-          toggleActions: "play none play reverse",
-        },
-        defaults: {
-          ease: "power4.inOut",
-        },
-      });
-
-      tl.fromTo(
-        data,
-        {
-          y: -50,
-        },
-        {
-          y: 0,
-        }
-      )
-
-        .to(
-          img,
-          {
-            clipPath: "polygon(0% 95%, 100% 49%, 100% 100%, 0 100%)",
-            delay: 0.1,
-          },
-          "-=.05"
-        )
-        .to(
-          img,
-          {
-            clipPath: "polygon(0% 0%, 100% 0%, 100% 100%, 0% 100%)",
-            delay: 0.1,
-          },
-          "-=.052"
-        )
-        .to(
-          border,
-          {
-            scaleX: 1,
-          },
-          "-=.053"
-        )
-        .to(
-          [number, role, name, about],
-          {
-            opacity: 1,
-            yPercent: 0,
-            stagger: 0.1,
-            duration: 0.5,
-            ease: "power1.out",
-          },
-          "-=.053"
-        );
-
-      galleryTeam.forEach((img) => {
-        let p = img.closest(".team-card").querySelector(".team-role");
-        let originalText = p.innerText;
-
-        img.addEventListener("mouseenter", () => {
-          gsap.to(img, {
-            clipPath: "polygon(0 9%, 100% 0, 100% 91%, 0% 100%)",
-          });
-          randomType(p, "01", 650, true);
+        gsap.set(img, {
+          clipPath: "polygon(0% 100%, 100% 100%, 100% 100%, 0% 100%)",
+        });
+        gsap.set(border, {
+          scaleX: 0,
+        });
+        gsap.set([role, number, name, about], {
+          yPercent: 100,
+          opacity: 0,
         });
 
-        img.addEventListener("mouseleave", () => {
-          gsap.to(img, {
-            clipPath: "polygon(0% 0%, 100% 0%, 100% 100%, 0% 100%)",
+        const tl = gsap.timeline({
+          scrollTrigger: {
+            trigger: data,
+            start: "-70% top",
+            end: "bottom top",
+            // markers: true,
+            toggleActions: "play none play reverse",
+          },
+          defaults: {
+            ease: "power4.inOut",
+          },
+        });
+
+        tl.fromTo(
+          data,
+          {
+            y: -50,
+          },
+          {
+            y: 0,
+          }
+        )
+
+          .to(
+            img,
+            {
+              clipPath: "polygon(0% 95%, 100% 49%, 100% 100%, 0 100%)",
+              delay: 0.1,
+            },
+            "-=.05"
+          )
+          .to(
+            img,
+            {
+              clipPath: "polygon(0% 0%, 100% 0%, 100% 100%, 0% 100%)",
+              delay: 0.1,
+            },
+            "-=.052"
+          )
+          .to(
+            border,
+            {
+              scaleX: 1,
+            },
+            "-=.053"
+          )
+          .to(
+            [number, role, name, about],
+            {
+              opacity: 1,
+              yPercent: 0,
+              stagger: 0.1,
+              duration: 0.5,
+              ease: "power1.out",
+            },
+            "-=.053"
+          );
+
+        galleryTeam.forEach((img) => {
+          let p = img.closest(".team-card").querySelector(".team-role");
+          let originalText = p.innerText;
+
+          img.addEventListener("mouseenter", () => {
+            gsap.to(img, {
+              clipPath: "polygon(0 9%, 100% 0, 100% 91%, 0% 100%)",
+            });
+            randomType(p, "01", 300, true);
           });
-          p.innerText = originalText;
+
+          img.addEventListener("mouseleave", () => {
+            gsap.to(img, {
+              clipPath: "polygon(0% 0%, 100% 0%, 100% 100%, 0% 100%)",
+            });
+            p.innerText = originalText;
+          });
         });
       });
-    });
-
+    }
     return () => {};
   }, []);
 
