@@ -115,7 +115,10 @@ const Header = () => {
                 </button>
               ) : (
                 <Link to="/loginSignup">
-                  <button className="py-2 px-4 bg-black2 text-white1 rounded-sm ">
+                  <button
+                    onClick={closeMenu}
+                    className="py-2 px-4 bg-black2 text-white1 rounded-sm "
+                  >
                     Login
                   </button>
                 </Link>
