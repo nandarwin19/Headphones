@@ -5,6 +5,8 @@ import ShopContextProvider from "./context/ShopContext.jsx";
 
 ReactDOM.createRoot(document.getElementById("root")).render(
   <ShopContextProvider>
-    <App />
+    <div className="overflow-x-hidden">
+      <App />
+    </div>
   </ShopContextProvider>
 );
