@@ -1,6 +1,8 @@
 import { useContext } from "react";
 import { ShopContext } from "../context/ShopContext";
 import { IoMdRemove } from "react-icons/io";
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 const Cart = () => {
   const { getTotalCartAmount, all_headphones, cartItems, removeFromCart } =
@@ -9,6 +11,8 @@ const Cart = () => {
   return (
     <div className="w-full pt-[15vh] min-h-[100vh] bg-gray-100 font-poppins">
       <div className="w-11/12 mx-auto">
+        <ToastContainer />
+
         <h1 className="text-3xl mb-7">Your Bag</h1>
         <div className="lg:grid grid-cols-12 flex flex-col space-y-16 lg:space-y-0">
           <div className="col-span-9">
@@ -40,7 +44,10 @@ const Cart = () => {
 
                           <IoMdRemove
                             className="w-4 md:w-6 ml-8 md:ml-4 cursor-pointer"
-                            onClick={() => removeFromCart(e.id)}
+                            onClick={() => {
+                              removeFromCart(e.id);
+                              toast.success("Remove product from cart");
+                            }}
                           />
                         </div>
                         <hr className="h-1 bg-gray-300 border-0" />

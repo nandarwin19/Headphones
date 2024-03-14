@@ -2,7 +2,8 @@ import { useContext } from "react";
 import { ShopContext } from "../context/ShopContext";
 import { features } from "../components/constants/constant";
 import { useParams } from "react-router-dom";
-import RelatedProducts from "../components/RelatedProducts";
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 const EachIteamPage = () => {
   const { all_headphones, addToCart } = useContext(ShopContext);
@@ -15,6 +16,7 @@ const EachIteamPage = () => {
 
   return (
     <div className="min-h-screen laptop:grid grid-cols-12  relative  bg-white1  pt-[10vh] w-full">
+      <ToastContainer />
       <div className="col-span-9 c relative h-full flex w-full bg-black">
         <div className="laptop:w-[55px] md:fixed hidden md:block bg-white1 h-full border-1 border-r-black"></div>
         <div className="lg:pl-[55px] h-full w-full border border-black">
@@ -60,6 +62,7 @@ const EachIteamPage = () => {
           <button
             onClick={() => {
               addToCart(product.id);
+              toast.success("Product added to cart");
             }}
             className="w-full h-10 mt-16 bg-black1 text-white"
           >
