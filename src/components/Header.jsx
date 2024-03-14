@@ -68,7 +68,7 @@ const Header = () => {
           {toggleMenu ? <IoMdClose /> : <IoIosMenu />}
         </div>
         {toggleMenu && (
-          <div className="md:hidden w-1/2 absolute top-12 right-0 bg-white1 h-screen">
+          <div className="md:hidden w-1/2 absolute top-14 right-0 bg-white1 h-screen">
             <ul className="w-full uppercase text-center flex flex-col h-screen  items-center justify-center gap-8">
               <li>
                 <Link
@@ -86,13 +86,13 @@ const Header = () => {
               >
                 HEADPHONES
               </Link>
-              <Link
+              {/* <Link
                 onClick={closeMenu}
                 to={"/reviews"}
                 className="tracking-wider cursor-pointer"
               >
                 REVIEWS
-              </Link>
+              </Link> */}
               <li>
                 <Link
                   to={"/cart"}
