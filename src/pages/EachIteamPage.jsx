@@ -101,7 +101,7 @@ const EachIteamPage = () => {
             <img
               src={product?.image}
               alt=""
-              className="w-full h-[60vh] md:h-[90vh] object-center object-fill"
+              className="w-full h-[50vh] md:h-[90vh] object-center object-fill"
             />
             {/* <RelatedProducts /> */}
           </div>
