@@ -151,7 +151,7 @@ app.post("/signup", async (req, res) => {
     cart[i] = 0;
   }
   const user = new Users({
-    username: req.body.name,
+    name: req.body.name,
     email: req.body.email,
     password: req.body.password,
     cartData: cart,
@@ -172,21 +172,31 @@ app.post("/signup", async (req, res) => {
 
 // creating endpoint for user login
 app.post("/login", async (req, res) => {
-  let user = await Users.findOne({ email: req.body.email });
-  if (user) {
-    const passCompare = req.body.password === user.password;
-    if (passCompare) {
-      const data = {
-        user: {
-          id: user.id,
-        },
-      };
-      const token = jwt.sign(data, "secret_ecom");
-      res.json({ success: true, token });
-      window.location.replace("/");
+  try {
+    let user = await Users.findOne({ email: req.body.email });
+    if (user) {
+      const passCompare = req.body.password === user.password;
+      if (passCompare) {
+        const data = {
+          user: {
+            id: user.id,
+          },
+        };
+        const token = jwt.sign(data, "secret_ecom");
+        res.json({ success: true, token });
+      } else {
+        res
+          .status(400)
+          .json({ success: false, errors: "Password is incorrect" });
+      }
     } else {
-      res.json({ success: false, errors: "Password is incorrect" });
+      res.status(400).json({ success: false, errors: "Wrong email!" });
     }
+  } catch (error) {
+    console.error("Error logging in:", error);
+    res
+      .status(500)
+      .json({ success: false, errors: "An error occurred while logging in" });
   }
 });
 

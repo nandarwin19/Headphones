@@ -1,4 +1,6 @@
 import { useState } from "react";
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 const LoginSignup = () => {
   const [toggleChange, setToggleChange] = useState(false);
@@ -13,7 +15,24 @@ const LoginSignup = () => {
   };
 
   const login = async () => {
-    console.log("Login function executed", formData);
+    let responseData;
+    await fetch("http://localhost:4000/login", {
+      method: "POST",
+      headers: {
+        Accept: "application/json",
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(formData),
+    })
+      .then((response) => response.json())
+      .then((data) => (responseData = data));
+
+    if (responseData.success) {
+      localStorage.setItem("auth-token", responseData.token);
+      window.location.replace("/");
+    } else {
+      toast.error(responseData.errors);
+    }
   };
 
   const signup = async () => {
@@ -22,19 +41,19 @@ const LoginSignup = () => {
     await fetch("http://localhost:4000/signup", {
       method: "POST",
       headers: {
-        Accept: "application/form-data",
+        Accept: "application/json",
         "Content-Type": "application/json",
       },
       body: JSON.stringify(formData),
     })
-      .then((respnose) => respnose.json())
+      .then((response) => response.json())
       .then((data) => (responseData = data));
 
     if (responseData.success) {
       localStorage.setItem("auth-token", responseData.token);
       window.location.replace("/");
     } else {
-      alert(responseData.errors);
+      toast.error(responseData.errors);
     }
   };
 
@@ -45,6 +64,7 @@ const LoginSignup = () => {
   return (
     <div className="h-screen w-full flex items-center justify-center bg-gray-100 font-poppins">
       <div className="w-11/12 mx-auto pt-10">
+        <ToastContainer />
         <div className="w-full max-w-sm mx-auto bg-white/50 backdrop-blur-md rounded-lg p-8 border-2 border-gray-300/60 shadow-lg shadow-gray-300/50">
           <h1 className="text-2xl mb-5 text-center font-bold">
             {toggleChange ? "Sign In" : "Sign Up"}
