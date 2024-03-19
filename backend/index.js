@@ -225,7 +225,6 @@ const fetchUser = async (req, res, next) => {
     }
   }
 };
-
 // creating endpoint for adding products in cartdata
 app.post("/addtocart", fetchUser, async (req, res) => {
   let userData = await Users.findOne({ _id: req.user.id }); // find user
@@ -235,6 +234,29 @@ app.post("/addtocart", fetchUser, async (req, res) => {
     { cartData: userData.cartData }
   ); // update user
   res.send("Added");
+});
+
+// creating endpoint to remove the product from cartData
+app.post("/removefromcart", fetchUser, async (req, res) => {
+  console.log("removed", req.body.itemId);
+  let userData = await Users.findOne({ _id: req.user.id }); // find user
+  if (userData.cartData[req.body.itemId] > 0) {
+    userData.cartData[req.body.itemId] -= 1;
+
+    await Users.findOneAndUpdate(
+      { _id: req.user.id },
+      { cartData: userData.cartData }
+    ); // update user
+    res.send("Removed");
+  } else {
+    res.send("Not Removed");
+  }
+});
+
+// creating endpoint for getting cartData
+app.get("/getcart", fetchUser, async (req, res) => {
+  let userData = await Users.findOne({ _id: req.user.id }); // find user
+  res.send(userData.cartData);
 });
 
 app.listen(port, (error) => {

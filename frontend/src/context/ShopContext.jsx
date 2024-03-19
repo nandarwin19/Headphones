@@ -18,7 +18,31 @@ const ShopContextProvider = (props) => {
     fetch("http://localhost:4000/allproducts").then((response) =>
       response.json().then((data) => setAll_Headphones(data))
     );
-  }, []);
+
+    if (localStorage.getItem("auth-token")) {
+      fetch("http://localhost:4000/getcart", {
+        method: "GET", // change to GET
+        headers: {
+          Accept: "application/json",
+          "auth-token": `${localStorage.getItem("auth-token")}`,
+          "Content-Type": "application/json",
+        },
+      })
+        .then((response) => {
+          if (!response.ok) {
+            throw new Error("Failed to fetch cart data");
+          }
+          return response.json();
+        })
+        .then((data) => {
+          setCartItems(data);
+          console.log(cartItems);
+        })
+        .catch((error) => {
+          console.error(error);
+        });
+    }
+  }, [cartItems]);
 
   const addToCart = (itemId) => {
     setCartItems((prev) => ({ ...prev, [itemId]: prev[itemId] + 1 }));
@@ -40,6 +64,19 @@ const ShopContextProvider = (props) => {
 
   const removeFromCart = (itemId) => {
     setCartItems((prev) => ({ ...prev, [itemId]: prev[itemId] - 1 }));
+    if (localStorage.getItem("auth-token")) {
+      fetch("http://localhost:4000/removefromcart", {
+        method: "POST",
+        headers: {
+          Accept: "application/json",
+          "auth-token": `${localStorage.getItem("auth-token")}`,
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({ itemId: itemId }),
+      })
+        .then((response) => response.json())
+        .then((data) => console.log(data));
+    }
   };
 
   const getTotalCartAmount = () => {
