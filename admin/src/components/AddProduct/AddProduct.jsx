@@ -1,6 +1,9 @@
 import { useState } from "react";
 import upload_area from "./../../assets/upload-area.png";
 
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
+
 const AddProduct = () => {
   const [image, setImage] = useState(false);
   const [productDetails, setProductDetails] = useState({
@@ -50,13 +53,14 @@ const AddProduct = () => {
       })
         .then((resp) => resp.json())
         .then((data) => {
-          data.success ? alert("Product Added") : alert("Failed");
+          data.success ? toast.success("Product Added") : toast.error("Failed");
         });
     }
   };
 
   return (
     <div className="p-4 space-y-8 max-w-[800px] py-[30px] px-[50px] my-[20px] mx-[30px] rounded-md bg-white shadow-2xl">
+      <ToastContainer />
       <div className="w-full text-[#7b7b7b] text-md md:text-lg">
         <p>Product Title</p>
         <input
@@ -69,7 +73,9 @@ const AddProduct = () => {
         />
       </div>
       <div className="w-full text-[#7b7b7b] text-md md:text-lg">
-        <p>Price</p>
+        <p>
+          Price<small>(only number)</small>
+        </p>
         <input
           type="text"
           className="w-full h-[50px] rounded-md placeholder:text-[#7b7b7b] pl-4 outline-none bg-[#cbcbcb] text-[#484848] text-md"

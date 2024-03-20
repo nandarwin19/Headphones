@@ -16,7 +16,7 @@ const Navbar = () => {
         // Scroll to the target element after scrolling to the top
         setTimeout(() => {
           targetElement.scrollIntoView({ behavior: "smooth" });
-        }, 500);
+        }, 300);
       }
     }
   };
@@ -28,24 +28,20 @@ const Navbar = () => {
           <Link
             to={"/products"}
             className="tracking-wider cursor-pointer"
-            onClick={() => handleClick(event, null)}
+            onClick={() => handleClick(event)}
           >
             HEADPHONES
           </Link>
         </li>
-        <li>
-          <a href="#moreus" className="tracking-wider cursor-pointer">
-            ABOUT-US
-          </a>
+        {/* <li>
+          <a className="tracking-wider cursor-pointer">ABOUT-US</a>
         </li>
         <li className="tracking-wider cursor-pointer">
-          <a href="#team" className="tracking-wider cursor-pointer">
-            TEAM
-          </a>
-        </li>
+          <a className="tracking-wider cursor-pointer">TEAM</a>
+        </li> */}
         <li>
-          <Link to={"/reviews"} onClick={() => handleClick(event, null)}>
-            REVIEWS
+          <Link to={"/cart"} onClick={() => handleClick(event, null)}>
+            CART
           </Link>
         </li>
       </ul>

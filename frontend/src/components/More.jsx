@@ -6,62 +6,78 @@ import Others from "./Others";
 
 const More = () => {
   const textRef = useRef(null);
+  let animation = null; // Add a variable to store the animation
 
   useEffect(() => {
-    gsap.registerPlugin(ScrollTrigger);
-    const text = textRef.current;
+    if (window.innerWidth > 768) {
+      gsap.registerPlugin(ScrollTrigger);
+      const text = textRef.current;
 
-    if (!text) return;
+      if (!text) return;
 
-    const observer = new IntersectionObserver(
-      (entries) => {
-        entries.forEach((entry) => {
-          if (entry.isIntersecting) {
-            const mySplitText = new SplitType(text, {
-              type: "chars",
-            });
-            const chars = mySplitText.chars;
+      const observer = new IntersectionObserver(
+        (entries) => {
+          entries.forEach((entry) => {
+            if (entry.isIntersecting) {
+              const mySplitText = new SplitType(text, {
+                type: "chars",
+              });
+              const chars = mySplitText.chars;
 
-            gsap.fromTo(
-              chars,
-              {
-                scaleY: 0,
-                duration: 0.5,
-                color: "gray",
-                y: 30,
-                skewX: 10,
-              },
-              {
-                y: 0,
-                scaleY: 1,
-                skewX: 0,
-                color: "black",
-                duration: 0.2,
-                stagger: 0.02,
-                scrollTrigger: {
-                  trigger: text,
-                  start: "top 50%",
-                  end: "5% -70%",
-                  scrub: true,
-                  // markers: true,
-                  toggleActions: "play none none reverse",
+              animation = gsap.fromTo(
+                // Store the animation in the variable
+                chars,
+                {
+                  scaleY: 0,
+                  duration: 0.5,
+                  color: "gray",
+                  y: 30,
+                  skewX: 10,
                 },
-              }
-            );
+                {
+                  y: 0,
+                  scaleY: 1,
+                  skewX: 0,
+                  color: "black",
+                  duration: 0.2,
+                  stagger: 0.02,
+                  scrollTrigger: {
+                    trigger: text,
+                    start: "top 50%",
+                    end: "5% -70%",
+                    scrub: true,
+                    // markers: true,
+                    toggleActions: "play none none reverse",
+                  },
+                }
+              );
 
-            observer.unobserve(entry.target);
-          }
-        });
-      },
-      { threshold: 0.5 }
-    );
+              observer.unobserve(entry.target);
+            }
+          });
+        },
+        { threshold: 0.5 }
+      );
 
-    observer.observe(text);
+      observer.observe(text);
+
+      return () => {
+        observer.disconnect();
+      };
+    }
+
+    const handleResize = () => {
+      if (window.innerWidth <= 768 && animation) {
+        // Check if the window is resized to 768 pixels or less and if the animation exists
+        animation.kill(); // Kill the animation
+      }
+    };
+
+    window.addEventListener("resize", handleResize); // Add a 'resize' event listener to the window object
 
     return () => {
-      observer.disconnect();
+      window.removeEventListener("resize", handleResize); // Clean up the event listener when the component unmounts
     };
-    // }
   }, []);
 
   return (

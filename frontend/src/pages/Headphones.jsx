@@ -2,8 +2,9 @@ import { useContext, useState } from "react";
 import { ShopContext } from "../context/ShopContext";
 import banner from "/img/bannerp.jpg";
 import { CiShop } from "react-icons/ci";
-import Item from "../components/Item";
+
 import Contact from "../components/Contact";
+import Item from "../components/Item";
 
 const Headphones = () => {
   const { all_headphones } = useContext(ShopContext);

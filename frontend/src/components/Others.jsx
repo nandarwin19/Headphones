@@ -8,107 +8,112 @@ import SplitType from "split-type";
 
 const Others = () => {
   useEffect(() => {
-    gsap.registerPlugin(ScrollTrigger);
-    const texts = document.querySelectorAll("div.other-animate p");
+    if (window.innerWidth > 768) {
+      gsap.registerPlugin(ScrollTrigger);
+      const texts = document.querySelectorAll("div.other-animate p");
 
-    texts.forEach((text) => {
-      // const img = text.nextElementSibling;
-      const img = text.closest(".other-animate").querySelector("img");
-      const icon = text.closest(".other-animate").querySelector(".icon");
-      const line = text.closest(".other-animate").querySelector(".enhanceLine");
+      texts.forEach((text) => {
+        // const img = text.nextElementSibling;
+        const img = text.closest(".other-animate").querySelector("img");
+        const icon = text.closest(".other-animate").querySelector(".icon");
+        const line = text
+          .closest(".other-animate")
+          .querySelector(".enhanceLine");
 
-      const splitType = new SplitType(text);
+        const splitType = new SplitType(text);
 
-      const tl = gsap.timeline({
-        scrollTrigger: {
-          trigger: text,
-          start: "top 80%",
-          end: "bottom center",
-          // markers: true,
-          toggleActions: "play play none reverse",
-        },
-      });
-
-      tl
-        .from(splitType.chars, {
-          duration: 1,
-          y: 50,
-          opacity: 0,
-          stagger: 0.005,
-          ease: "power2.out",
-        })
-        .fromTo(
-          img,
-          {
-            opacity: 0,
-            y: 100,
+        const tl = gsap.timeline({
+          scrollTrigger: {
+            trigger: text,
+            start: "top 80%",
+            end: "bottom center",
+            // markers: true,
+            toggleActions: "play play none reverse",
           },
-          {
-            opacity: 1,
-            y: 0,
-            duration: 1,
-          },
-          "<"
-        )
-        .fromTo(
-          icon,
-          {
+        });
+
+        tl
+          .from(splitType.chars, {
             duration: 1,
             y: 50,
             opacity: 0,
             stagger: 0.005,
             ease: "power2.out",
-          },
-          {
-            opacity: 1,
-            y: 0,
-          },
-          "<"
-        )
-        .fromTo(
-          line,
-          {
-            scaleX: 0,
-            opacity: 0,
-            // ease: "power1.out",
-          },
-          {
-            opacity: 1,
-            scaleX: 1,
-            duration: 0.8,
-            delay: -0.5,
-          }
-        ),
-        "-=2";
-    });
+          })
+          .fromTo(
+            img,
+            {
+              opacity: 0,
+              y: 100,
+            },
+            {
+              opacity: 1,
+              y: 0,
+              duration: 1,
+            },
+            "<"
+          )
+          .fromTo(
+            icon,
+            {
+              duration: 1,
+              y: 50,
+              opacity: 0,
+              stagger: 0.005,
+              ease: "power2.out",
+            },
+            {
+              opacity: 1,
+              y: 0,
+            },
+            "<"
+          )
+          .fromTo(
+            line,
+            {
+              scaleX: 0,
+              opacity: 0,
+              // ease: "power1.out",
+            },
+            {
+              opacity: 1,
+              scaleX: 1,
+              duration: 0.8,
+              delay: -0.5,
+            }
+          ),
+          "-=2";
+      });
+    }
 
     return () => {};
   }, []);
 
   useEffect(() => {
-    const textTl = gsap.timeline({
-      scrollTrigger: {
-        trigger: ".movingTextDiv",
-        start: "top 30%",
-        end: "bottom center",
-        scrub: true,
-        // markers: true,
-      },
-    });
+    if (window.innerWidth > 768) {
+      const textTl = gsap.timeline({
+        scrollTrigger: {
+          trigger: ".movingTextDiv",
+          start: "top 30%",
+          end: "bottom center",
+          scrub: true,
+          // markers: true,
+        },
+      });
 
-    textTl.fromTo(
-      ".movingText",
-      {
-        x: 1400,
-        yPercent: 0,
-        // duration: 2,
-        scrub: true,
-      },
-      {
-        x: 0,
-      }
-    );
-
+      textTl.fromTo(
+        ".movingText",
+        {
+          x: 1400,
+          yPercent: 0,
+          // duration: 2,
+          scrub: true,
+        },
+        {
+          x: 0,
+        }
+      );
+    }
     return () => {};
   }, []);
 
@@ -145,8 +150,8 @@ const Others = () => {
             </div>
           </div>
         ))}
-        <div className="movingTextDiv relative flex items-center justify-center min-h-[300px] tablet:min-h-[600px] tablet:h-[70vh]">
-          <p className="movingText text-[3rem] tablet:text-[10rem] absolute whitespace-nowrap">
+        <div className="movingTextDiv overflow-x-hidden relative flex items-center justify-center min-h-[300px] tablet:min-h-[600px] tablet:h-[70vh]">
+          <p className="movingText text-[40px] tablet:text-[9rem] absolute whitespace-nowrap">
             Discover Headphones
           </p>
         </div>

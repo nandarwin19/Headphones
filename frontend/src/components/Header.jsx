@@ -13,20 +13,16 @@ const Header = () => {
     setToggleMenu(!toggleMenu);
   };
 
-  // const goToLogin = () => {
-  //   setToggleMenu(false);
-  //   window.location.href = "/loginSignup";
-  // };
-
   const closeMenu = () => {
+    window.scrollTo({ top: 0, behavior: "smooth" });
     setToggleMenu(false);
   };
 
   return (
     <div className="fixed top-0 z-50 bg-white1 w-full border border-[#000000] font-bold">
-      <div className="grid  grid-cols-12 h-[10vh] w-full place-items-center">
+      <div className="grid grid-cols-12 h-[10vh] w-full place-items-center">
         <Link
-          to={`/home`}
+          to={`/`}
           className=" w-full h-full col-span-9 flex items-center laptop:border border-l-[#0000] border-r-[#242424]"
         >
           <p className="tablet:pl-12 pl-6 cursor-pointer Aquatico flex items-center">
@@ -54,7 +50,7 @@ const Header = () => {
           <Link to={`/cart`}>
             <p className="tablet:pr-12 relative pr-6 cursor-pointer col-span-3 flex w-full h-full justify-end items-center">
               <RiHeadphoneFill className="text-2xl" />
-              <small className="absolute top-[12px]">
+              <small className="absolute bg-red-600 rounded-full w-4 h-4 flex items-center justify-center top-[-10px] right-11">
                 {getTotalCartItems()}
               </small>
             </p>
@@ -67,11 +63,11 @@ const Header = () => {
           {toggleMenu ? <IoMdClose /> : <IoIosMenu />}
         </div>
         {toggleMenu && (
-          <div className="md:hidden w-1/2 absolute top-12 right-0 bg-white1 h-screen">
+          <div className="md:hidden w-1/2 absolute top-14 right-0 bg-white1 h-screen">
             <ul className="w-full uppercase text-center flex flex-col h-screen  items-center justify-center gap-8">
               <li>
                 <Link
-                  to={"/home"}
+                  to={"/"}
                   onClick={closeMenu}
                   className="tracking-wider cursor-pointer"
                 >
@@ -85,13 +81,13 @@ const Header = () => {
               >
                 HEADPHONES
               </Link>
-              <Link
+              {/* <Link
                 onClick={closeMenu}
                 to={"/reviews"}
                 className="tracking-wider cursor-pointer"
               >
                 REVIEWS
-              </Link>
+              </Link> */}
               <li>
                 <Link
                   to={"/cart"}
@@ -114,7 +110,10 @@ const Header = () => {
                 </button>
               ) : (
                 <Link to="/loginSignup">
-                  <button className="py-2 px-4 bg-black2 text-white1 rounded-sm ">
+                  <button
+                    onClick={closeMenu}
+                    className="py-2 px-4 bg-black2 text-white1 rounded-sm "
+                  >
                     Login
                   </button>
                 </Link>

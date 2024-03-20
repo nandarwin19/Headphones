@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import {  useState } from "react";
 import { RxCross2 } from "react-icons/rx";
 
 const ListProduct = () => {
@@ -7,13 +7,10 @@ const ListProduct = () => {
     await fetch("http://localhost:4000/allproducts")
       .then((res) => res.json())
       .then((data) => {
+        console.log("All Products Fetched"); // Log only once when products are fetched
         setAllProducts(data);
       });
   };
-
-  useEffect(() => {
-    fetchInfo();
-  }, []);
 
   const remove_product = async (id) => {
     await fetch(`http://localhost:4000/removeproduct`, {

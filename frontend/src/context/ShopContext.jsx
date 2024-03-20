@@ -42,7 +42,7 @@ const ShopContextProvider = (props) => {
           console.error(error);
         });
     }
-  }, [cartItems]);
+  }, []);
 
   const addToCart = (itemId) => {
     setCartItems((prev) => ({ ...prev, [itemId]: prev[itemId] + 1 }));

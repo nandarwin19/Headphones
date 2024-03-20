@@ -64,6 +64,12 @@ const Product = mongoose.model("Product", {
   price: {
     type: Number,
     required: true,
+    validate: {
+      validator: function (v) {
+        return v >= 0;
+      },
+      message: "Price must be a non-negative number",
+    },
   },
   date: {
     type: Date,

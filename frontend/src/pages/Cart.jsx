@@ -1,23 +1,22 @@
 import { useContext } from "react";
 import { ShopContext } from "../context/ShopContext";
 import { IoMdRemove } from "react-icons/io";
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 const Cart = () => {
-  const {
-    getTotalCartItems,
-    getTotalCartAmount,
-    all_headphones,
-    cartItems,
-    removeFromCart,
-  } = useContext(ShopContext);
+  const { getTotalCartAmount, all_headphones, cartItems, removeFromCart } =
+    useContext(ShopContext);
 
   return (
     <div className="w-full pt-[15vh] min-h-[100vh] bg-gray-100 font-poppins">
       <div className="w-11/12 mx-auto">
+        <ToastContainer />
+
         <h1 className="text-3xl mb-7">Your Bag</h1>
         <div className="lg:grid grid-cols-12 flex flex-col space-y-16 lg:space-y-0">
           <div className="col-span-9">
-            <div className="grid grid-cols-[1fr_2fr_1fr_1fr_1fr] text-md md:text-lg items-center">
+            <div className="grid grid-cols-[1fr_2fr_1fr_1fr_1fr] gap-2 text-md md:text-lg items-center">
               <p>Products</p>
               <p className="">Title</p>
               <p className="">Price</p>
@@ -31,11 +30,11 @@ const Cart = () => {
                   if (cartItems[e.id] > 0) {
                     return (
                       <>
-                        <div className="grid grid-cols-[1fr_2fr_1fr_1fr_1fr] items-center gap-7 px-6 py-4 md:gap-7">
+                        <div className="grid grid-cols-[1fr_2fr_1fr_1fr_1fr] items-center gap-2 px-6 py-4 md:gap-7">
                           <img
                             src={e.image}
                             alt=""
-                            className="h-16 w-16  md:h-20 md:w-20 -ml-5"
+                            className="h-12 w-16  md:h-20 md:w-20 -ml-5"
                           />
                           <p className="text-sm md:text-base -ml-5">{e.name}</p>
                           <p className="text-sm md:text-base">${e.price}</p>
@@ -44,8 +43,11 @@ const Cart = () => {
                           </button>
 
                           <IoMdRemove
-                            className="w-4 md:w-6 cursor-pointer"
-                            onClick={() => removeFromCart(e.id)}
+                            className="w-4 md:w-6 ml-8 md:ml-4 cursor-pointer"
+                            onClick={() => {
+                              removeFromCart(e.id);
+                              toast.success("Remove product from cart");
+                            }}
                           />
                         </div>
                         <hr className="h-1 bg-gray-300 border-0" />
@@ -92,5 +94,3 @@ const Cart = () => {
 };
 
 export default Cart;
-
-
