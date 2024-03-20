@@ -53,8 +53,8 @@ To set up the backend of N.Headphone, follow these steps:
 - `fetchUser`: Middleware to verify and fetch user information from the JWT token in the request header.
 
   ## Screenshot
-  ![Home Image](images/home.png)
+  ![Home Image](image/home.png)
 
-  ![Cart Image](images/cart.png)
+  ![Cart Image](image/cart.png)
 
-    ![Team Image](images/team.png)
+    ![Team Image](image/team.png)
