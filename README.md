@@ -55,6 +55,3 @@ To set up the backend of N.Headphone, follow these steps:
   ## Screenshot
   ![Home Image](image/home.png)
 
-  ![Cart Image](image/cart.png)
-
-    ![Team Image](image/team.png)
