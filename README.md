@@ -23,9 +23,9 @@ To set up the backend of N.Headphone, follow these steps:
 
 1. Clone this repository to your local machine.
 2. Navigate to the project directory in your terminal.
-3. Install dependencies by running `npm install`.
-4. Update the MongoDB connection string in `app.js` to point to your MongoDB database.
-5. To initiate the backend server, execute node index.js within the project directory. The server will default to port 4000. For both frontend and admin tasks, utilize "npm run dev".
+3. create .env in BACKEND and add mongoDB url.
+4. Install dependencies by running npm install in each folder - frontend, backend, and admin.
+5. To initiate the backend server, execute `node index.js` within the project directory. The server will default to port 4000. For both frontend and admin folders, run "npm run dev".
 
 ## Dependencies
 
