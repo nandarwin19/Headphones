@@ -23,34 +23,9 @@ To set up the backend of N.Headphone, follow these steps:
 
 1. Clone this repository to your local machine.
 2. Navigate to the project directory in your terminal.
-3. create .env in BACKEND and add mongoDB url.
+3. create .env in BACKEND and add mongoDB key.
 4. Install dependencies by running npm install in each folder - frontend, backend, and admin.
 5. To initiate the backend server, execute `node index.js` within the project directory. The server will default to port 4000. For both frontend and admin folders, run "npm run dev".
-
-## Dependencies
-
-- Express.js: Web application framework for Node.js.
-- Mongoose: MongoDB object modeling tool.
-- JWT: JSON Web Token implementation for authentication.
-- Multer: Middleware for handling multipart/form-data, used for image uploads.
-- Cors: Middleware for enabling CORS (Cross-Origin Resource Sharing).
-
-## Endpoints
-
-- `GET /`: Root endpoint, returns a welcome message.
-- `GET /allproducts`: Retrieves all products from the database.
-- `POST /addproduct`: Adds a new product to the database.
-- `POST /removeproduct`: Removes a product from the database.
-- `POST /signup`: Registers a new user.
-- `POST /login`: Logs in an existing user.
-- `GET /homeproducts`: Retrieves a subset of products for the home page.
-- `POST /addtocart`: Adds a product to the user's cart.
-- `POST /removefromcart`: Removes a product from the user's cart.
-- `GET /getcart`: Retrieves the user's cart data.
-
-## Middleware
-
-- `fetchUser`: Middleware to verify and fetch user information from the JWT token in the request header.
 
   ## Screenshot
   ![Home Image](image/home.png)
