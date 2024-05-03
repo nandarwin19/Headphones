@@ -15,7 +15,7 @@ const Hero = () => {
             ></video>
           </div>
         </div>
-        <div className="col-span-3 h-[80vh]">
+        <div className="col-span-3 hidden md:block h-[80vh]">
           <div className="w-full  transform-origin-top border two-text-bg border-b-black flex flex-col justify-between min-h-[280px]  p-4 py-6 h-[20vh]">
             <p className="text-sm">We</p>
             <div className="flex justify-between gap-2">
