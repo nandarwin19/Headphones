@@ -248,16 +248,16 @@ export const IMAGE_FORMAT = ".png";
 
 export const socialLinks = [
   {
-    href: "https://t.me/nwin2004",
+    href: "https://t.me",
     text: "telegram",
     icon: <FaTelegramPlane />,
   },
   {
-    href: "https://github.com/nandarwin19",
+    href: "https://github.com",
     text: "GitHub",
     icon: <FaGithub />,
   },
-  { href: "mailto:nwin21210@gmail.com", text: "email", icon: <MdEmail /> },
+  { href: "mailto:aaa", text: "email", icon: <MdEmail /> },
 ];
 
 export const features = [
